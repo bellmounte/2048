@@ -57,19 +57,77 @@ int GameBoard::random_number (int max)
 bool perform_move_vertical(Direction direction)
 {
 	bool valid_move = false;
-	for (int i = 0; i < COLUMNS; i++) {
-		if (direction == UP) {
-			if (board[i] == board[COLUMNS + i] && board[i] != 0) {
-				board[i] = 2 * board[i];
-				board[COLUMNS + i] = 0;
-				valid_move = true;
-			} else if (board[i] == 0 && board[COLUMNS + i] != 0) {
-				board[i] = board[COLUMNS + i];
-				board[COLUMNS + i] = 0;
-				valid_move = true;
-			}
-		} else if (direction == DOWN) {
 
+	// Perform transforms
+	for (int i = 0; i < COLUMNS; i++) {
+
+		for (int j = 0; j < ROWS; j++) {
+			int index = i + (COLUMNS * j);
+
+			// If we have somehow gone past the board, break;
+			if (index >= SLOTS) {
+				break;
+			}
+
+			// If the slot is empty, continue.
+			if (board[index] == 0) {
+				continue;
+			}
+
+			do {
+				int nextIndex = i + (COLUMNS * (j+1));
+
+				// If the next index is past the board, break;
+				if (nextIndex >= SLOTS) {
+					break;
+				}
+
+				if (board[nextIndex] == 0) {
+					// If the slot is empty, continue.
+					j++;
+				} else if (board[index] == board[nextIndex]) {
+					board[index] = board[index] + board[nextIndex];
+					board[nextIndex] = 0;
+					valid_move = true;
+					break;
+				} else {
+					break;
+				}
+			} while (j < ROWS);
+		}
+
+
+		// Perform Shifts
+		for (int i = 0; i < COLUMNS; i++) {
+
+			if (direction == UP) {
+				int availableIndex = -1;
+				for (int j = 0; j < ROWS; j++) {
+					int index = i + (COLUMNS * j);
+
+					// If we have somehow gone past the board, break;
+					if (index >= SLOTS) {
+						break;
+					}
+
+					if (board[index] == 0) {
+						// Set first available index if one does not exist.
+						if (availableIndex == -1) {
+							availableIndex = index;
+						}
+						continue;
+					} else {
+						if (availableIndex == -1) {
+							continue;
+						} else {
+							board[availableIndex] = board[index];
+							board[index] = 0;
+							availableIndex = availableIndex + COLUMNS;
+							valid_move = true;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -97,7 +155,6 @@ void GameBoard::perform_move(Direction direction)
 		case RIGHT:
 			valid_move = perform_move_horizontal(direction);
 			break;
-
 	}
 
 	if (valid_move) {
@@ -113,8 +170,6 @@ void GameBoard::perform_move(Direction direction)
 		}
 	}
 }
-
-
 
 bool GameBoard::is_game_over()
 {
