@@ -54,12 +54,17 @@ int GameBoard::random_number (int max)
 	return rand() % max;
 }
 
-
-void GameBoard::perform_move(Direction direction)
+bool perform_move_vertical(Direction direction)
 {
 	bool valid_move = false;
-	for (int i = 0; i < SLOTS - COLUMNS; i++) {
+	for (int i = 0; i < COLUMNS; i++) {
 		switch (direction) {
+			// These Directions should be handed by the perform_move_horizontal method.
+			case LEFT:
+			case RIGHT:
+				return false;
+			case DOWN:
+				break;
 			case UP:
 				if (board[i] == board[COLUMNS + i] && board[i] != 0) {
 					board[i] = 2 * board[i];
@@ -71,11 +76,34 @@ void GameBoard::perform_move(Direction direction)
 					valid_move = true;
 				}
 				break;
-			case DOWN:
-			case LEFT:
-			case RIGHT:
-				break;
 		}
+	}
+
+	return valid_move;
+}
+
+bool perform_move_horizontal(Direction direction)
+{
+	bool valid_move = false;
+	for (int i = 0; i < ROWS; i++) {
+	}
+	return valid_move;
+}
+
+
+void GameBoard::perform_move(Direction direction)
+{
+	bool valid_move = false;
+	switch (direction) {
+		case DOWN:
+		case UP:
+			valid_move = perform_move_vertical(direction);
+			break;
+		case LEFT:
+		case RIGHT:
+			valid_move = perform_move_horizontal(direction);
+			break;
+
 	}
 
 	if (valid_move) {
@@ -91,6 +119,8 @@ void GameBoard::perform_move(Direction direction)
 		}
 	}
 }
+
+
 
 bool GameBoard::is_game_over()
 {

@@ -8,6 +8,7 @@ A remake of the original [2048] game in C/C++.
  - Write a platform independent game, starting with terminal
  - Write a UI in OpenGL that runs on OS X.
  - Write a UI in OpenGL ES for iOS.
+ - Limit hard coding any assumptions, such as board size and shape.
 
 #### Additional Goals
   - Add DS4 controller support for OS X.
