@@ -1,9 +1,12 @@
 // game_board.cpp
-#include <iostream>
 
+#include <iostream>
 #include "game_board.h"
+
+// TODO: This will need to be moved out of the core GameBoard class.
 #include "platforms/terminal/output.h"
 
+// TODO: Need to convert this to use GameBoardSlots
 int board[SLOTS] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 GameBoard::GameBoard ()
@@ -18,18 +21,21 @@ GameBoard::GameBoard ()
 	}
 
 	// Set the first two ones
+	// TODO: Set the slots to tiles.
 	board[first] = 1;
 	board[second] = 1;
 }
 
 GameBoard::~GameBoard ()
 {
+	// TODO: Verify what needs to be destroyed.
 	// delete[] board;
 }
 
-// Start Platform Specific code
+// TODO: Move this method to a platform specific class.
 void GameBoard::print ()
 {
+	// Is there a better way to do this in C++? Preferably using a one liner.
 	Output output;
 	output.clear();
 
@@ -47,7 +53,6 @@ int GameBoard::random_number (int max)
 {
 	return rand() % max;
 }
-// End Platform Specific code
 
 
 void GameBoard::perform_move(Direction direction)
