@@ -58,24 +58,18 @@ bool perform_move_vertical(Direction direction)
 {
 	bool valid_move = false;
 	for (int i = 0; i < COLUMNS; i++) {
-		switch (direction) {
-			// These Directions should be handed by the perform_move_horizontal method.
-			case LEFT:
-			case RIGHT:
-				return false;
-			case DOWN:
-				break;
-			case UP:
-				if (board[i] == board[COLUMNS + i] && board[i] != 0) {
-					board[i] = 2 * board[i];
-					board[COLUMNS + i] = 0;
-					valid_move = true;
-				} else if (board[i] == 0 && board[COLUMNS + i] != 0) {
-					board[i] = board[COLUMNS + i];
-					board[COLUMNS + i] = 0;
-					valid_move = true;
-				}
-				break;
+		if (direction == UP) {
+			if (board[i] == board[COLUMNS + i] && board[i] != 0) {
+				board[i] = 2 * board[i];
+				board[COLUMNS + i] = 0;
+				valid_move = true;
+			} else if (board[i] == 0 && board[COLUMNS + i] != 0) {
+				board[i] = board[COLUMNS + i];
+				board[COLUMNS + i] = 0;
+				valid_move = true;
+			}
+		} else if (direction == DOWN) {
+
 		}
 	}
 
