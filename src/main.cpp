@@ -13,7 +13,7 @@ int random_number (int max) {
 // Platform specific
 Direction get_input ()
 {
-	std::cout << "Enter the shift direction [`up`, `down`, `left`, or `right`] or type `quit` to exit." << std::endl;
+	std::cout << "Enter the shift direction [`up`, `down`, `left`, or `right`]: ";
 	std::string input = "";
 	getline(std::cin, input);
 
@@ -25,8 +25,6 @@ Direction get_input ()
 		return LEFT;
 	} else if (input == "right" || input == "r") {
 		return RIGHT;
-	// } else if (input == "quit" || input == "exit") {
-	// 	return QUIT;
 	} else {
 		std::cout << "Invalid input: [" << input << "], try again:" << std::endl;
 		return get_input();
@@ -48,25 +46,18 @@ int main(int argc, char** argv)
 	// Main game loop
 	while (inProgress) {
 
-		// board_print(board);
+		// Print the 2048 Board
 		game_board->print();
 
+		// Get user input for next move.
 		Direction input = get_input();
 
-		switch (input) {
-			case UP:
-			case DOWN:
-			case LEFT:
-			case RIGHT:
+		// Perform a move based on the given user input.
+		game_board->perform_move(input);
 
-				game_board->perform_move(input);
-				inProgress = !(game_board->is_game_over());
+		// Check to see if there are any valid moves left.
+		inProgress = !(game_board->is_game_over());
 
-				break;
-			// case QUIT:
-			// 	inProgress = false;
-			// 	break;
-		}
 	}
 
 	return 0;
