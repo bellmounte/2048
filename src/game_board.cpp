@@ -7,23 +7,34 @@
 #include "platforms/terminal/output.h"
 
 // TODO: Need to convert this to use GameBoardSlots
-int board[SLOTS] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int board[ROWS][COLUMNS];
 
 GameBoard::GameBoard ()
 {
+	// Set the initial board.
+	// TODO: Set these to GameBoardSlots
+	for (int i = 0; i < ROWS; ++i) {
+		for (int j = 0; j < COLUMNS; ++j) {
+			board[i][j] = 0;
+		}
+	}
+
 	// Get the first two nodes that will be 1
-	int first = random_number(SLOTS);
-	int second = random_number(SLOTS);
+	int rand_row_first = random_number(ROWS);
+	int rand_row_second = random_number(ROWS);
+	int rand_col_first = random_number(COLUMNS);
+	int rand_col_second = random_number(COLUMNS);
 
 	// Ensure there are two different starting 1's
-	while (second == first) {
-		second = random_number(SLOTS);
+	while (rand_row_first == rand_row_second && rand_col_first == rand_col_second) {
+		rand_row_second = random_number(ROWS);
+		rand_col_second = random_number(COLUMNS);
 	}
 
 	// Set the first two ones
 	// TODO: Set the slots to tiles.
-	board[first] = 1;
-	board[second] = 1;
+	board[rand_row_first][rand_col_first] = 1;
+	board[rand_row_second][rand_col_second] = 1;
 }
 
 GameBoard::~GameBoard ()
@@ -39,12 +50,11 @@ void GameBoard::print ()
 	Output output;
 	output.clear();
 
-	std::cout << "GameBoard Class Board:" << std::endl;
-	for (int i = 0; i < SLOTS; i++) {
-		std::cout << board[i] << " ";
-		if ((i + 1) % COLUMNS == 0) {
-			std::cout << std::endl;
+	for (int row = 0; row < ROWS; ++row) {
+		for (int col = 0; col < COLUMNS; ++col) {
+			std::cout << board[row][col] << " ";
 		}
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -59,73 +69,53 @@ bool perform_move_vertical(Direction direction)
 	bool valid_move = false;
 
 	// Perform transforms
-	for (int i = 0; i < COLUMNS; i++) {
+	for (int col = 0; col < COLUMNS; col++) {
 
-		for (int j = 0; j < ROWS; j++) {
-			int index = i + (COLUMNS * j);
-
-			// If we have somehow gone past the board, break;
-			if (index >= SLOTS) {
-				break;
-			}
+		for (int row = 0; row < ROWS; row++) {
 
 			// If the slot is empty, continue.
-			if (board[index] == 0) {
+			if (board[row][col] == 0) {
 				continue;
 			}
 
-			do {
-				int nextIndex = i + (COLUMNS * (j+1));
+			int current_row = row;
 
-				// If the next index is past the board, break;
-				if (nextIndex >= SLOTS) {
-					break;
-				}
+			while (row + 1 < ROWS) {
 
-				if (board[nextIndex] == 0) {
+				int next_row = row + 1;
+
+				if (board[next_row][col] == 0) {
 					// If the slot is empty, continue.
-					j++;
-				} else if (board[index] == board[nextIndex]) {
-					board[index] = board[index] + board[nextIndex];
-					board[nextIndex] = 0;
+					row++;
+				} else if (board[current_row][col] == board[next_row][col]) {
+					board[current_row][col] = board[current_row][col] + board[next_row][col];
+					board[next_row][col] = 0;
 					valid_move = true;
 					break;
 				} else {
 					break;
 				}
-			} while (j < ROWS);
+			}
 		}
+	}
 
+	// Perform Shifts
+	for (int col = 0; col < COLUMNS; col++) {
 
-		// Perform Shifts
-		for (int i = 0; i < COLUMNS; i++) {
+		int available_row = -1;
 
-			if (direction == UP) {
-				int availableIndex = -1;
-				for (int j = 0; j < ROWS; j++) {
-					int index = i + (COLUMNS * j);
-
-					// If we have somehow gone past the board, break;
-					if (index >= SLOTS) {
-						break;
+		if (direction == UP) {
+			for (int row = 0; row < ROWS; row++) {
+				if (board[row][col] == 0) {
+					// Set first available index if one does not exist.
+					if (available_row == -1) {
+						available_row = row;
 					}
-
-					if (board[index] == 0) {
-						// Set first available index if one does not exist.
-						if (availableIndex == -1) {
-							availableIndex = index;
-						}
-						continue;
-					} else {
-						if (availableIndex == -1) {
-							continue;
-						} else {
-							board[availableIndex] = board[index];
-							board[index] = 0;
-							availableIndex = availableIndex + COLUMNS;
-							valid_move = true;
-						}
-					}
+				} else if (available_row != -1) {
+					board[available_row][col] = board[row][col];
+					board[row][col] = 0;
+					available_row++;
+					valid_move = true;
 				}
 			}
 		}
@@ -158,24 +148,36 @@ void GameBoard::perform_move(Direction direction)
 	}
 
 	if (valid_move) {
-		int openings[SLOTS];
+		int openings_row[SLOTS];
+		int openings_col[SLOTS];
 		int openings_size = 0;
-		for (int i = 0; i < SLOTS; i++) {
-			if (board[i] == 0) {
-				openings[openings_size++] = i;
+
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j < COLUMNS; j++) {
+				if (board[i][j] == 0) {
+					openings_row[openings_size] = i;
+					openings_col[openings_size] = j;
+					openings_size++;
+				}
 			}
 		}
+
 		if (openings_size > 0) {
-			board[openings[random_number(openings_size)]]= 1;
+			int index = random_number(openings_size);
+			int opening_row = openings_row[index];
+			int opening_col = openings_col[index];
+			board[opening_row][opening_col]= 1;
 		}
 	}
 }
 
 bool GameBoard::is_game_over()
 {
-	for (int i = 0; i < SLOTS; i++) {
-		if (board[i] == 0) {
-			return false;
+	for (int row = 0; row < ROWS; row++) {
+		for (int col = 0; col < COLUMNS; col++) {
+			if (board[row][col] == 0) {
+				return false;
+			}
 		}
 	}
 	return true;
