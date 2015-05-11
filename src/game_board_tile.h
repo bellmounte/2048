@@ -9,9 +9,12 @@ class GameBoardTile
 {
 	public:
 		GameBoardTile();
+		GameBoardTile(int value);
 		~GameBoardTile();
 		int getValue();
-	// private:
+		void setValue();
+	private:
+		int _value;
 
 };
 

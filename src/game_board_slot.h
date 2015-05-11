@@ -4,6 +4,7 @@
 #define __GAME_BOARD_SLOT_H__
 
 #include "config.h"
+#include "game_board_tile.h"
 
 class GameBoardSlot
 {
@@ -11,8 +12,12 @@ class GameBoardSlot
 		GameBoardSlot();
 		~GameBoardSlot();
 		bool isEmpty();
-	// private:
-
+		void setTile(int value);
+		void removeTile();
+		GameBoardTile getTile();
+	private:
+		bool _is_empty;
+		GameBoardTile _tile;
 };
 
 #endif
