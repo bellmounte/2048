@@ -1,6 +1,7 @@
 // game_board.cpp
 
 #include <iostream>
+#include <iomanip>
 #include "game_board.h"
 
 // TODO: This will need to be moved out of the core GameBoard class.
@@ -52,9 +53,14 @@ void GameBoard::print ()
 
 	for (int row = 0; row < ROWS; ++row) {
 		for (int col = 0; col < COLUMNS; ++col) {
-			std::cout << board[row][col] << " ";
+			std::cout << " | " << std::setw(5);
+			if (board[row][col] == 0) {
+				std::cout << " ";
+			} else {
+				std::cout << board[row][col];
+			}
 		}
-		std::cout << std::endl;
+		std::cout << " |" << std::endl;
 	}
 	std::cout << std::endl;
 }
