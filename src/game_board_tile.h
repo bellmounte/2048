@@ -13,9 +13,9 @@ class GameBoardTile
 		~GameBoardTile();
 		int getValue();
 		void setValue();
+		void doubleValue();
 	private:
 		int _value;
-
 };
 
 #endif

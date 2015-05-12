@@ -21,3 +21,8 @@ int GameBoardTile::getValue ()
 {
 	return _value;
 }
+
+void GameBoardTile::doubleValue()
+{
+	_value *= 2;
+}
