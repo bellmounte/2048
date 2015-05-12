@@ -12,6 +12,7 @@ class GameBoardSlot
 		GameBoardSlot();
 		~GameBoardSlot();
 		bool isEmpty();
+		bool hasSameValueTile(GameBoardSlot slot);
 		void setTile(int value);
 		void doubleTile();
 		void removeTile();

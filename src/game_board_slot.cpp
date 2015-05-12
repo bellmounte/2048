@@ -16,6 +16,11 @@ bool GameBoardSlot::isEmpty ()
 	return _is_empty;
 }
 
+bool GameBoardSlot::hasSameValueTile(GameBoardSlot slot)
+{
+	return (_tile.getValue() == slot.getTile().getValue());
+}
+
 void GameBoardSlot::setTile (int value)
 {
 	_tile = GameBoardTile(value);
