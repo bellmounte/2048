@@ -22,6 +22,11 @@ void GameBoardSlot::setTile (int value)
 	_is_empty = false;
 }
 
+void GameBoardSlot::doubleTile()
+{
+	_tile.doubleValue();
+}
+
 void GameBoardSlot::removeTile ()
 {
 	_is_empty = true;

@@ -13,6 +13,7 @@ class GameBoardSlot
 		~GameBoardSlot();
 		bool isEmpty();
 		void setTile(int value);
+		void doubleTile();
 		void removeTile();
 		GameBoardTile getTile();
 	private:
