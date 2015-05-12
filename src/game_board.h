@@ -4,6 +4,7 @@
 #define __GAME_BOARD_H__
 
 #include "config.h"
+#include "game_board_slot.h"
 
 enum Direction { UP, DOWN, LEFT, RIGHT };
 
@@ -17,6 +18,7 @@ class GameBoard
 		bool is_game_over();
 	private:
 		int random_number(int max);
+		void fillRandomEmptySlot();
 };
 
 #endif
