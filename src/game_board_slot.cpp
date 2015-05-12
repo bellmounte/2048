@@ -21,6 +21,12 @@ bool GameBoardSlot::hasSameValueTile(GameBoardSlot slot)
 	return (_tile.getValue() == slot.getTile().getValue());
 }
 
+void GameBoardSlot::initializeTile()
+{
+	// TODO: randomize this between 1 and 2.
+	setTile(1);
+}
+
 void GameBoardSlot::setTile (int value)
 {
 	_tile = GameBoardTile(value);
