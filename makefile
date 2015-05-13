@@ -3,7 +3,8 @@ SRCS=src/main.cpp \
 src/game_board.cpp \
 src/game_board_tile.cpp \
 src/game_board_slot.cpp \
-src/platforms/terminal/output.cpp
+src/platforms/terminal/output.cpp \
+src/platforms/terminal/term_game_board.cpp
 
 CC=gcc
 CXX=g++
