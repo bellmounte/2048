@@ -5,7 +5,7 @@
 #include "game_board.h"
 
 // TODO: This will need to be moved out of the core GameBoard class.
-#include "platforms/terminal/output.h"
+#include "../platforms/terminal/output.h"
 
 GameBoard::GameBoard ()
 {

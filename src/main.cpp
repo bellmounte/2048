@@ -3,8 +3,8 @@
 #include <iostream>
 #include <string>
 
-#include "config.h"
-#include "game_board.h"
+#include "core/config.h"
+#include "core/game_board.h"
 
 int random_number (int max) {
 	return rand() % max;
