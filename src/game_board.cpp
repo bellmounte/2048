@@ -7,8 +7,6 @@
 // TODO: This will need to be moved out of the core GameBoard class.
 #include "platforms/terminal/output.h"
 
-GameBoardSlot board[ROWS][COLUMNS];
-
 GameBoard::GameBoard ()
 {
 	// Set the initial board.
@@ -79,7 +77,7 @@ int GameBoard::random_number (int max)
 	return rand() % max;
 }
 
-bool perform_move_vertical(Direction direction)
+bool GameBoard::perform_move_vertical(Direction direction)
 {
 	bool valid_move = false;
 
@@ -140,7 +138,7 @@ bool perform_move_vertical(Direction direction)
 	return valid_move;
 }
 
-bool perform_move_horizontal(Direction direction)
+bool GameBoard::perform_move_horizontal(Direction direction)
 {
 	bool valid_move = false;
 	for (int i = 0; i < ROWS; i++) {

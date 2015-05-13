@@ -16,9 +16,13 @@ class GameBoard
 		void print();
 		void perform_move(Direction direction);
 		bool is_game_over();
+	protected:
+		GameBoardSlot board[ROWS][COLUMNS];
 	private:
 		int random_number(int max);
 		void fillRandomEmptySlot();
+		bool perform_move_vertical(Direction direction);
+		bool perform_move_horizontal(Direction direction);
 };
 
 #endif
