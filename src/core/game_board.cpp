@@ -119,7 +119,6 @@ bool GameBoard::perform_move_vertical(Direction direction)
 
 		if (direction == UP) {
 			for (int row = 0; row < ROWS; row++) {
-				std::cout << "[" << row << "," << col << "] " << board[row][col].isEmpty() << std::endl;
 				if (board[row][col].isEmpty()) {
 					// Set first available index if one does not exist.
 					if (available_row == -1) {
