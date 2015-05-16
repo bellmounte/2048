@@ -2,9 +2,9 @@
 
 #include <iostream>
 #include <iomanip>
-#include "game_board.h"
 
 #include "core/util.h"
+#include "core/game_board.h"
 
 GameBoard::GameBoard ()
 {
