@@ -2,6 +2,12 @@
 
 A remake of the original [2048] game in C/C++.
 
+### Getting Started
+```bash
+$ make
+$ ./2048
+```
+
 #### Initial Goals
  - Improve me C/C++ skills.
  - Code at least 30 minutes a day.
@@ -16,7 +22,9 @@ A remake of the original [2048] game in C/C++.
   - Write a UI in DirectX for Windows 8/10.
   - Write a UI in Java for Android.
 
- Thanks to Tom Happ [@AxiomVerge](https://github.com/AxiomVerge) for the motivation behind this project. [Axiom Verge] has inspired me in a multitude of ways.
+
+
+Thanks to Tom Happ [@AxiomVerge](https://github.com/AxiomVerge) for the motivation behind this project. [Axiom Verge] has inspired me in a multitude of ways.
 
 [2048]:http://gabrielecirulli.github.io/2048/
 [Axiom Verge]:http://www.axiomverge.com
