@@ -1,5 +1,6 @@
 EXE=2048
 SRCS=src/main.cpp \
+src/core/game.cpp \
 src/core/game_board.cpp \
 src/core/game_board_tile.cpp \
 src/core/game_board_slot.cpp \
