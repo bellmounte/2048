@@ -1,6 +1,7 @@
 // game_board_slot.cpp
 
-#include "game_board_slot.h"
+#include "core/game_board_slot.h"
+#include "core/util.h"
 
 GameBoardSlot::GameBoardSlot ()
 {
@@ -23,8 +24,12 @@ bool GameBoardSlot::hasSameValueTile(GameBoardSlot slot)
 
 void GameBoardSlot::initializeTile()
 {
-	// TODO: randomize this between 1 and 2.
-	setTile(1);
+	int k = util::random(10);
+	if (k < 3) {
+		setTile(2);
+	} else {
+		setTile(1);
+	}
 }
 
 void GameBoardSlot::setTile (int value)
