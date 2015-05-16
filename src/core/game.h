@@ -10,11 +10,13 @@ class Game
 	public:
 		Game();
 		~Game();
-		void startGame();
+		void start();
 		void handleInput(Direction input);
 		bool isGameOver();
-	private:
+		Direction getInput();
+	protected:
 		GameBoard game_board;
+	private:
 		bool in_progress;
 };
 

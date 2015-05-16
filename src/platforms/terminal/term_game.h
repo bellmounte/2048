@@ -6,7 +6,9 @@
 #include "core/game.h"
 
 class TermGame : public Game {
-
+	public:
+		void start();
+		Direction getInput();
 };
 
 #endif
