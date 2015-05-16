@@ -7,9 +7,7 @@
 
 void TermGameBoard::print ()
 {
-	// Is there a better way to do this in C++? Preferably using a one liner.
-	Output output;
-	output.clear();
+	system("clear");
 
 	for (int row = 0; row < ROWS; ++row) {
 		for (int col = 0; col < COLUMNS; ++col) {

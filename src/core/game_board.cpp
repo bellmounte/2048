@@ -4,9 +4,6 @@
 #include <iomanip>
 #include "game_board.h"
 
-// TODO: This will need to be moved out of the core GameBoard class.
-#include "platforms/terminal/output.h"
-
 GameBoard::GameBoard ()
 {
 	// Set the initial board.
@@ -54,9 +51,7 @@ void GameBoard::fillRandomEmptySlot ()
 // TODO: Move this method to a platform specific class.
 void GameBoard::print ()
 {
-	// Is there a better way to do this in C++? Preferably using a one liner.
-	Output output;
-	output.clear();
+	system("clear");
 
 	for (int row = 0; row < ROWS; ++row) {
 		for (int col = 0; col < COLUMNS; ++col) {

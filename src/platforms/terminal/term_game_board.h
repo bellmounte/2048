@@ -4,7 +4,6 @@
 #define __TERM_GAME_BOARD_H__
 
 #include "core/game_board.h"
-#include "output.h"
 
 class TermGameBoard : public GameBoard {
 	public:

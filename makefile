@@ -4,7 +4,7 @@ src/core/game.cpp \
 src/core/game_board.cpp \
 src/core/game_board_tile.cpp \
 src/core/game_board_slot.cpp \
-src/platforms/terminal/output.cpp \
+src/platforms/terminal/term_game.cpp \
 src/platforms/terminal/term_game_board.cpp
 
 IDIR=src
