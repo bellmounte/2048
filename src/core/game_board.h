@@ -19,7 +19,6 @@ class GameBoard
 	protected:
 		GameBoardSlot board[ROWS][COLUMNS];
 	private:
-		int random_number(int max);
 		void fillRandomEmptySlot();
 		bool perform_move_vertical(Direction direction);
 		bool perform_move_horizontal(Direction direction);

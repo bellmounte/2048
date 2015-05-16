@@ -6,10 +6,6 @@
 #include "core/config.h"
 #include "core/game_board.h"
 
-int random_number (int max) {
-	return rand() % max;
-}
-
 // Platform specific
 Direction get_input ()
 {

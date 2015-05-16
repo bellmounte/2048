@@ -4,6 +4,8 @@
 #include <iomanip>
 #include "game_board.h"
 
+#include "core/util.h"
+
 GameBoard::GameBoard ()
 {
 	// Set the initial board.
@@ -41,7 +43,7 @@ void GameBoard::fillRandomEmptySlot ()
 	}
 
 	if (openings_size > 0) {
-		int index = random_number(openings_size);
+		int index = util::random(openings_size);
 		int opening_row = openings_row[index];
 		int opening_col = openings_col[index];
 		board[opening_row][opening_col].initializeTile();
@@ -65,11 +67,6 @@ void GameBoard::print ()
 		std::cout << " |" << std::endl;
 	}
 	std::cout << std::endl;
-}
-
-int GameBoard::random_number (int max)
-{
-	return rand() % max;
 }
 
 bool GameBoard::perform_move_vertical(Direction direction)
