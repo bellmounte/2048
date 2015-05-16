@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
 
 Direction TermGame::getInput()
 {
@@ -66,6 +67,10 @@ Direction TermGame::getInput()
 
 void TermGame::start()
 {
+    system("clear");
+    std::cout << "\n\n\t2048++ by bellmounte" << std::endl;
+    sleep(3);
+
 	bool in_progress = true;
 
 	while (in_progress) {
@@ -89,5 +94,7 @@ void TermGame::start()
 	}
 	// Print the final 2048 Board
 	game_board.print();
+
+    std::cout << "Thanks for playing 2048++" << std::endl;
 
 }
