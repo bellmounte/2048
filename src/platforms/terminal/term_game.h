@@ -1,4 +1,4 @@
-// term_game_board.h
+// term_game.h
 
 #ifndef __TERM_GAME_H__
 #define __TERM_GAME_H__

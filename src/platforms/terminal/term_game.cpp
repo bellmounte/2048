@@ -1,4 +1,4 @@
-// term_game_board.cpp
+// term_game.cpp
 
 #include "term_game.h"
 
