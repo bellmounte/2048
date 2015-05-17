@@ -14,14 +14,14 @@ class GameBoard
 		GameBoard();
 		~GameBoard();
 		void print();
-		void perform_move(Direction direction);
-		bool is_game_over();
+		void performMove(Direction direction);
+		bool isGameOver();
 	protected:
 		GameBoardSlot board[ROWS][COLUMNS];
 	private:
 		void fillRandomEmptySlot();
-		bool perform_move_vertical(Direction direction);
-		bool perform_move_horizontal(Direction direction);
+		bool performMove_vertical(Direction direction);
+		bool performMove_horizontal(Direction direction);
 };
 
 #endif

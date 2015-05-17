@@ -86,10 +86,10 @@ void TermGame::start()
 			in_progress = false;
 		} else {
 			// Perform a move based on the given user input.
-			game_board.perform_move(input);
+			game_board.performMove(input);
 
 			// Check to see if there are any valid moves left.
-			in_progress = !(game_board.is_game_over());
+			in_progress = !(game_board.isGameOver());
 		}
 	}
 	// Print the final 2048 Board

@@ -69,7 +69,7 @@ void GameBoard::print ()
 	std::cout << std::endl;
 }
 
-bool GameBoard::perform_move_vertical(Direction direction)
+bool GameBoard::performMove_vertical(Direction direction)
 {
 	bool valid_move = false;
 
@@ -168,7 +168,7 @@ bool GameBoard::perform_move_vertical(Direction direction)
 	return valid_move;
 }
 
-bool GameBoard::perform_move_horizontal(Direction direction)
+bool GameBoard::performMove_horizontal(Direction direction)
 {
 	bool valid_move = false;
 
@@ -268,17 +268,17 @@ bool GameBoard::perform_move_horizontal(Direction direction)
 }
 
 
-void GameBoard::perform_move(Direction direction)
+void GameBoard::performMove(Direction direction)
 {
 	bool valid_move = false;
 	switch (direction) {
 		case DOWN:
 		case UP:
-			valid_move = perform_move_vertical(direction);
+			valid_move = performMove_vertical(direction);
 			break;
 		case LEFT:
 		case RIGHT:
-			valid_move = perform_move_horizontal(direction);
+			valid_move = performMove_horizontal(direction);
 			break;
 	}
 
@@ -287,7 +287,7 @@ void GameBoard::perform_move(Direction direction)
 	}
 }
 
-bool GameBoard::is_game_over()
+bool GameBoard::isGameOver()
 {
 	for (int row = 0; row < ROWS; row++) {
 		for (int col = 0; col < COLUMNS; col++) {

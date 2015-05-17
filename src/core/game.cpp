@@ -17,7 +17,7 @@ Game::~Game ()
 void Game::handleInput(Direction input)
 {
 	if (in_progress) {
-		game_board.perform_move(input);
+		game_board.performMove(input);
 	}
 }
 
@@ -27,5 +27,5 @@ bool Game::isGameOver()
 		return true;
 	}
 
-	return game_board.is_game_over();
+	return game_board.isGameOver();
 }
