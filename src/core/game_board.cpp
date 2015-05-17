@@ -2,8 +2,6 @@
 
 #include "core/game_board.h"
 
-#include <iostream>
-#include <iomanip>
 #include "core/util.h"
 
 GameBoard::GameBoard ()
@@ -48,25 +46,6 @@ void GameBoard::fillRandomEmptySlot ()
 		int opening_col = openings_col[index];
 		board[opening_row][opening_col].initializeTile();
 	}
-}
-
-// TODO: Move this method to a platform specific class.
-void GameBoard::print ()
-{
-	system("clear");
-
-	for (int row = 0; row < ROWS; ++row) {
-		for (int col = 0; col < COLUMNS; ++col) {
-			std::cout << " | " << std::setw(5);
-			if (board[row][col].isEmpty()) {
-				std::cout << " ";
-			} else {
-				std::cout << board[row][col].getTile().getValue();
-			}
-		}
-		std::cout << " |" << std::endl;
-	}
-	std::cout << std::endl;
 }
 
 bool GameBoard::performMove_vertical(Direction direction)

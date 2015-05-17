@@ -13,7 +13,6 @@ class GameBoard
 	public:
 		GameBoard();
 		~GameBoard();
-		void print();
 		void performMove(Direction direction);
 		bool isGameOver();
 	protected:
