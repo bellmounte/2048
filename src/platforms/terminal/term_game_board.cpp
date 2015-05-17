@@ -1,9 +1,9 @@
 // term_game_board.cpp
 
-#include <iostream>
-#include <iomanip>
 #include "term_game_board.h"
 
+#include <iostream>
+#include <iomanip>
 
 void TermGameBoard::print ()
 {

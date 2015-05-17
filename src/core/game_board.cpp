@@ -1,10 +1,10 @@
 // game_board.cpp
 
+#include "core/game_board.h"
+
 #include <iostream>
 #include <iomanip>
-
 #include "core/util.h"
-#include "core/game_board.h"
 
 GameBoard::GameBoard ()
 {

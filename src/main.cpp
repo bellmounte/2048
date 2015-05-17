@@ -1,12 +1,11 @@
 // main.cpp
 
-#include <iostream>
-
 #include "platforms/terminal/term_game.h"
+
+#include <iostream>
 
 int main(int argc, char** argv)
 {
-
 	// Seed the starting randomization
 	srand (time(NULL));
 

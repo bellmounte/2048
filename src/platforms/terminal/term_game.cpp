@@ -3,7 +3,6 @@
 #include "term_game.h"
 
 #include <iostream>
-#include <string>
 #include <unistd.h>
 
 Direction TermGame::getInput()
