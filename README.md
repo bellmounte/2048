@@ -23,8 +23,4 @@ $ ./2048
   - Write a UI in Java for Android.
 
 
-
-Thanks to Tom Happ [@AxiomVerge](https://github.com/AxiomVerge) for the motivation behind this project. [Axiom Verge] has inspired me in a multitude of ways.
-
 [2048]:http://gabrielecirulli.github.io/2048/
-[Axiom Verge]:http://www.axiomverge.com
