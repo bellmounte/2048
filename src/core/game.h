@@ -14,10 +14,12 @@ class Game
 		void handleInput(Direction input);
 		bool isGameOver();
 		Direction getInput();
+		int getScore();
 	protected:
 		GameBoard game_board;
 	private:
 		bool in_progress;
+		int game_score;
 };
 
 #endif

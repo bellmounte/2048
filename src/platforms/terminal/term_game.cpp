@@ -68,6 +68,8 @@ void TermGame::print()
 {
     system("clear");
     std::cout << "\n\t\t2048++ by bellmounte" << std::endl;
+    std::cout << "\t\tScore: " << getScore() << std::endl << std::endl;
+    // std::cout << "\tMoves: " << moves << std::endl;
 
     // Print the 2048 Board
     game_board.print();
