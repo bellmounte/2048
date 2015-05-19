@@ -10,8 +10,11 @@ class TermGame : public Game {
 	public:
 		void start();
 		Direction getInput();
+		void print();
 	protected:
 		TermGameBoard game_board;
+	private:
+		bool in_progress;
 };
 
 #endif

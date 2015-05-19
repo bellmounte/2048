@@ -7,9 +7,8 @@
 
 void TermGameBoard::print ()
 {
-	system("clear");
-
 	for (int row = 0; row < ROWS; ++row) {
+		std::cout << "\t";
 		for (int col = 0; col < COLUMNS; ++col) {
 			std::cout << " | " << std::setw(5);
 			if (board[row][col].isEmpty()) {

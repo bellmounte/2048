@@ -64,18 +64,31 @@ Direction TermGame::getInput()
     return result;
 }
 
+void TermGame::print()
+{
+    system("clear");
+    std::cout << "\n\t\t2048++ by bellmounte" << std::endl;
+
+    // Print the 2048 Board
+    game_board.print();
+
+    if (!in_progress) {
+        std::cout << "\tThanks for playing 2048++\n" << std::endl;
+    }
+
+}
+
 void TermGame::start()
 {
     system("clear");
-    std::cout << "\n\n\t2048++ by bellmounte" << std::endl;
-    sleep(3);
+    std::cout << "\n\n\n\t\t2048++ by bellmounte" << std::endl;
+    sleep(1);
 
-	bool in_progress = true;
+	in_progress = true;
 
 	while (in_progress) {
 
-		// Print the 2048 Board
-		game_board.print();
+        print();
 
 		// Get user input for next move.
 		Direction input = getInput();
@@ -91,9 +104,7 @@ void TermGame::start()
 			in_progress = !(game_board.isGameOver());
 		}
 	}
-	// Print the final 2048 Board
-	game_board.print();
 
-    std::cout << "Thanks for playing 2048++" << std::endl;
-
+    // Print the final 2048 Board and game over screen.
+	print();
 }
