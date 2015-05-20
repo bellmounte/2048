@@ -21,6 +21,7 @@ class GameBoard
 		void fillRandomEmptySlot();
 		bool performMove_vertical(Direction direction);
 		bool performMove_horizontal(Direction direction);
+		void performMove_slots(int current_row, int current_col, int next_row, int next_col);
 };
 
 #endif

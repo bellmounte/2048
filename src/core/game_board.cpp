@@ -48,6 +48,12 @@ void GameBoard::fillRandomEmptySlot ()
 	}
 }
 
+void GameBoard::performMove_slots(int current_row, int current_col, int next_row, int next_col)
+{
+	board[current_row][current_col].doubleTile();
+	board[next_row][next_col].removeTile();
+}
+
 bool GameBoard::performMove_vertical(Direction direction)
 {
 	bool valid_move = false;
@@ -71,8 +77,7 @@ bool GameBoard::performMove_vertical(Direction direction)
 						// If the slot is empty, continue.
 						row++;
 					} else if (board[current_row][col].hasSameValueTile(board[next_row][col])) {
-						board[current_row][col].doubleTile();
-						board[next_row][col].removeTile();
+						performMove_slots(current_row, col, next_row, col);
 						valid_move = true;
 						break;
 					} else {
@@ -96,8 +101,7 @@ bool GameBoard::performMove_vertical(Direction direction)
 						// If the slot is empty, continue.
 						row--;
 					} else if (board[current_row][col].hasSameValueTile(board[next_row][col])) {
-						board[current_row][col].doubleTile();
-						board[next_row][col].removeTile();
+						performMove_slots(current_row, col, next_row, col);
 						valid_move = true;
 						break;
 					} else {
@@ -170,8 +174,7 @@ bool GameBoard::performMove_horizontal(Direction direction)
 						// If the slot is empty, continue.
 						col++;
 					} else if (board[row][current_col].hasSameValueTile(board[row][next_col])) {
-						board[row][current_col].doubleTile();
-						board[row][next_col].removeTile();
+						performMove_slots(row, current_col, row, next_col);
 						valid_move = true;
 						break;
 					} else {
@@ -195,8 +198,7 @@ bool GameBoard::performMove_horizontal(Direction direction)
 						// If the slot is empty, continue.
 						col--;
 					} else if (board[row][current_col].hasSameValueTile(board[row][next_col])) {
-						board[row][current_col].doubleTile();
-						board[row][next_col].removeTile();
+						performMove_slots(row, current_col, row, next_col);
 						valid_move = true;
 						break;
 					} else {
