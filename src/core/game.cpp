@@ -23,7 +23,7 @@ int Game::getScore() {
 void Game::handleInput(Direction input)
 {
 	if (in_progress) {
-		game_board.performMove(input);
+		getGameBoard().performMove(input);
 	}
 }
 
@@ -33,5 +33,5 @@ bool Game::isGameOver()
 		return true;
 	}
 
-	return game_board.isGameOver();
+	return getGameBoard().isGameOver();
 }

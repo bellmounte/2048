@@ -10,10 +10,10 @@ class Game
 	public:
 		Game();
 		~Game();
+		virtual GameBoard& getGameBoard() = 0;
 		void start();
 		void handleInput(Direction input);
 		bool isGameOver();
-		Direction getInput();
 		int getScore();
 	protected:
 		GameBoard game_board;

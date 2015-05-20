@@ -11,6 +11,9 @@ class TermGame : public Game {
 		void start();
 		Direction getInput();
 		void print();
+		TermGameBoard& getGameBoard() {
+			return game_board;
+		}
 	protected:
 		TermGameBoard game_board;
 	private:
