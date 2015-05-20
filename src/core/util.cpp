@@ -13,4 +13,8 @@ namespace util
 	int random (int max, int min) {
 		return rand() % (max - min) + min;
 	}
+
+	int pow2 (unsigned power) {
+		return 1 << power;
+	}
 }

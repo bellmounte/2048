@@ -7,6 +7,7 @@ namespace util
 {
 	int random (int max);
 	int random (int max, int min);
+	int pow2 (unsigned power);
 }
 
 #endif
