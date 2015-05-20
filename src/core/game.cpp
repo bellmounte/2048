@@ -24,6 +24,7 @@ void Game::handleInput(Direction input)
 {
 	if (in_progress) {
 		getGameBoard().performMove(input);
+		game_score += getGameBoard().getScore_lastMove();
 	}
 }
 

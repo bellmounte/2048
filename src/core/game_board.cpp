@@ -16,6 +16,9 @@ GameBoard::GameBoard ()
 	for (int i = 0; i < INITIAL_TILES; i++) {
 		fillRandomEmptySlot();
 	}
+
+	// Set initial value for the move score.
+	score_last_move = 0;
 }
 
 GameBoard::~GameBoard ()
@@ -48,8 +51,17 @@ void GameBoard::fillRandomEmptySlot ()
 	}
 }
 
+int GameBoard::getScore_lastMove () {
+	return score_last_move;
+}
+
 void GameBoard::performMove_slots(int current_row, int current_col, int next_row, int next_col)
 {
+	// Calculate the score of merging these tiles.
+	int tile_value = board[current_row][current_col].getTile().getValue();
+	score_last_move += (tile_value - 1) * util::pow2(tile_value);
+
+	// Perform the move.
 	board[current_row][current_col].doubleTile();
 	board[next_row][next_col].removeTile();
 }
@@ -154,6 +166,7 @@ bool GameBoard::performMove_vertical(Direction direction)
 bool GameBoard::performMove_horizontal(Direction direction)
 {
 	bool valid_move = false;
+	score_last_move = 0;
 
 	// Perform transforms
 	for (int row = 0; row < ROWS; row++) {
