@@ -1,7 +1,7 @@
-// game_board_tile.h
+// game_board_tile.hpp
 
-#ifndef __GAME_BOARD_TILE_H__
-#define __GAME_BOARD_TILE_H__
+#ifndef __GAME_BOARD_TILE_HPP__
+#define __GAME_BOARD_TILE_HPP__
 
 class GameBoardTile
 {

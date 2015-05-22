@@ -1,8 +1,8 @@
 // game_board.cpp
 
-#include "core/game_board.h"
+#include "core/game_board.hpp"
 
-#include "core/util.h"
+#include "core/util.hpp"
 
 GameBoard::GameBoard ()
 {

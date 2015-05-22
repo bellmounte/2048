@@ -1,10 +1,10 @@
-// game_board.h
+// game_board.hpp
 
-#ifndef __GAME_BOARD_H__
-#define __GAME_BOARD_H__
+#ifndef __GAME_BOARD_HPP__
+#define __GAME_BOARD_HPP__
 
-#include "config.h"
-#include "game_board_slot.h"
+#include "core/config.hpp"
+#include "core/game_board_slot.hpp"
 
 enum Direction { UP, DOWN, LEFT, RIGHT };
 

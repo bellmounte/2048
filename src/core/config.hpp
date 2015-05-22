@@ -1,7 +1,7 @@
-// config.h
+// config.hpp
 
-#ifndef __CONFIG_H__
-#define __CONFIG_H__
+#ifndef __CONFIG_HPP__
+#define __CONFIG_HPP__
 
 #define INITIAL_TILES 2
 #define ROWS 4

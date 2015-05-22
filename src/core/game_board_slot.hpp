@@ -1,9 +1,9 @@
-// game_board_slot.h
+// game_board_slot.hpp
 
-#ifndef __GAME_BOARD_SLOT_H__
-#define __GAME_BOARD_SLOT_H__
+#ifndef __GAME_BOARD_SLOT_HPP__
+#define __GAME_BOARD_SLOT_HPP__
 
-#include "game_board_tile.h"
+#include "core/game_board_tile.hpp"
 
 class GameBoardSlot
 {

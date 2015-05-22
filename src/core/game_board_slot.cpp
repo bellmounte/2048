@@ -1,7 +1,7 @@
 // game_board_slot.cpp
 
-#include "core/game_board_slot.h"
-#include "core/util.h"
+#include "core/game_board_slot.hpp"
+#include "core/util.hpp"
 
 GameBoardSlot::GameBoardSlot ()
 {

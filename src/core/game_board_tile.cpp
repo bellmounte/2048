@@ -1,6 +1,6 @@
 // game_board_tile.cpp
 
-#include "game_board_tile.h"
+#include "core/game_board_tile.hpp"
 
 GameBoardTile::GameBoardTile()
 {

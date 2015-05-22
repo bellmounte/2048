@@ -1,10 +1,10 @@
-// term_game.h
+// term_game.hpp
 
 #ifndef __TERM_GAME_H__
 #define __TERM_GAME_H__
 
-#include "core/game.h"
-#include "term_game_board.h"
+#include "core/game.hpp"
+#include "term_game_board.hpp"
 
 class TermGame : public Game {
 	public:

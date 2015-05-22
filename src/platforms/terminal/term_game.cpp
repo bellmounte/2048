@@ -1,6 +1,6 @@
 // term_game.cpp
 
-#include "term_game.h"
+#include "term_game.hpp"
 
 #include <iostream>
 #include <unistd.h>

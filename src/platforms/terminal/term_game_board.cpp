@@ -1,6 +1,6 @@
 // term_game_board.cpp
 
-#include "term_game_board.h"
+#include "term_game_board.hpp"
 
 #include <iostream>
 #include <iomanip>

@@ -1,6 +1,6 @@
 // main.cpp
 
-#include "platforms/terminal/term_game.h"
+#include "platforms/terminal/term_game.hpp"
 
 #include <iostream>
 

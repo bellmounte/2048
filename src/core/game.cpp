@@ -1,6 +1,6 @@
 // game.cpp
 
-#include "game.h"
+#include "core/game.hpp"
 
 Game::Game ()
 {

@@ -1,9 +1,9 @@
-// game.h
+// game.hpp
 
-#ifndef __GAME_H__
-#define __GAME_H__
+#ifndef __GAME_HPP__
+#define __GAME_HPP__
 
-#include "game_board.h"
+#include "core/game_board.hpp"
 
 class Game
 {
