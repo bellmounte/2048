@@ -285,10 +285,23 @@ bool GameBoard::isGameOver()
 {
 	for (int row = 0; row < ROWS; row++) {
 		for (int col = 0; col < COLUMNS; col++) {
+			// Any empty tile means the game is not over.
 			if (board[row][col].isEmpty()) {
+				return false;
+			}
+
+			// Two vertically matching tiles means the game is not over.
+			if (row > 0 && board[row][col].hasSameValueTile(board[row-1][col])) {
+				return false;
+			}
+
+			// Two horizontally matching tiles means the game is not over.
+			if (col > 0 && board[row][col].hasSameValueTile(board[row][col-1])) {
 				return false;
 			}
 		}
 	}
+
+	// Not potential moves remain, the game is over.
 	return true;
 }
