@@ -166,7 +166,6 @@ bool GameBoard::performMove_vertical(Direction direction)
 bool GameBoard::performMove_horizontal(Direction direction)
 {
 	bool valid_move = false;
-	score_last_move = 0;
 
 	// Perform transforms
 	for (int row = 0; row < ROWS; row++) {
@@ -264,6 +263,7 @@ bool GameBoard::performMove_horizontal(Direction direction)
 
 void GameBoard::performMove(Direction direction)
 {
+	score_last_move = 0;
 	bool valid_move = false;
 	switch (direction) {
 		case DOWN:
